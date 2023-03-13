@@ -1,4 +1,3 @@
-### Aplicación Web de alertas de Precio y Volumen sobre el fúturo del Bitcoin y Ethereum en Binance
+##### Proyecto de aprendizaje de una aplicación web que mediante la API de Binance configura un sistema de alarmas sobre el precio de Bitcoin y Ethereum
 
-### Web Application for Price and Volume alerts on the future of Bitcoin and Ethereum on Binance
-
+> url: https://app-binance-alarms.netlify.app/

@@ -13,8 +13,10 @@
 }
 
 body {
-  background-color: rgb(38, 39, 48);
+  
+  background-color: rgb(113, 118, 123);
   min-width: 568px;
+  height: 1080px;
 
   display: grid !important;
 
@@ -748,6 +750,8 @@ input:checked+.slider .on {
 
   body {
     display: grid !important;
+
+    height: 1750px;
 
     grid-template-columns: 100%;
     grid-template-rows: 25% 25% 25% 25%;
