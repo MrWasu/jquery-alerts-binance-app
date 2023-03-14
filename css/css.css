@@ -16,8 +16,9 @@ body {
   
   background-color: rgb(113, 118, 123);
   min-width: 568px;
-  height: 1080px;
-
+  
+  height: 100vh;
+  
   display: grid !important;
 
   grid-template-columns: 30% 40% 30%;
@@ -36,7 +37,7 @@ body {
   background-color: rgb(38, 39, 48);
   border: solid 3px orange;
   border-radius: 20px;
-  height: 891px;
+  height: 95vh;
   padding: 30px;
   margin-right: 5%;
   margin-left: 5%;
@@ -65,7 +66,7 @@ body {
   background-color: rgb(38, 39, 48);
   border: 3px solid rgb(81, 51, 250);
   border-radius: 20px;
-  height: 891px;
+  height: 95vh;
   padding: 30px;
   margin-right: 5%;
   margin-left: 5%;
