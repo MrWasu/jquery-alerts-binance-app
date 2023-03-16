@@ -94,6 +94,10 @@ class Alert {
     }
 }
 
+
+
+
+
 $(document).ready(function () {
     showDate(); // manda crear la hora y mostrarla
     getPriceAndVolume(); // recoge los datos desde binance
@@ -620,3 +624,5 @@ function showAlertOnConsole() {
     log('arreglo eth bajas: ' + arrEthLowerAlerts);
     log('arreglo eth volumen: ' + arrEthVolumeAlerts);
 }
+
+
