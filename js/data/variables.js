@@ -6,6 +6,8 @@ let cryptoRadioChoice = 'bitcoin';
 let alertTypeChoice = 'double';
 let mute = false;
 
+
+// Alarmas Predefinidas
 const alarmDemo1 = {"id":1,"price":50000,"currency":"bitcoin","description":"Alarma de ejemplo 1","type":"Superior","status":false}
 const alarmDemo2 = {"id":2,"price":2000,"currency":"bitcoin","description":"Alarma de ejemplo 2","type":"Inferior","status":false}
 const alarmDemo3 = {"id":3,"price":30000,"currency":"bitcoin","description":"Alarma Volumen de ejemplo 3","type":"Volumen","status":false}
@@ -14,6 +16,8 @@ const alarmDemo5 = {"id":5,"price":500,"currency":"ethereum","description":"Alar
 const alarmDemo6 = {"id":6,"price":90000,"currency":"ethereum","description":"Alarma Volumen de ejemplo","type":"Volumen","status":false}
 const alarmDemo7 = {"id":7,"price":80000,"currency":"ethereum","description":"Alarma Volumen de ejemplo","type":"Volumen","status":false}
 
+
+// Areglos
 const arrBtcHigherAlerts = JSON.parse(localStorage.getItem('arrBtcHigherAlerts')) || [alarmDemo1]
 const arrBtcLowerAlerts = JSON.parse(localStorage.getItem('arrBtcLowerAlerts')) || [alarmDemo2];
 const arrBtcVolumeAlerts = JSON.parse(localStorage.getItem('arrBtcVolumeAlerts')) || [alarmDemo3];
