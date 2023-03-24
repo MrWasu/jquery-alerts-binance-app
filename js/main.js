@@ -1,107 +1,11 @@
+
 // hay un error que hacer que se siga almacenando el contador de alert counter con su valor aunque no haya alarmas, habria que hacer que si los arreglos estan vacios, mande 0 como counterforStorage
 
 /* Variables */ 
 
-let btcPrice = 0;
-let EthPrice = 0;
-let btcVolume = 0;
-let ethVolume = 0;
-let cryptoRadioChoice = 'bitcoin';
-let alertTypeChoice = 'double';
-let mute = false;
 
-const alarmDemo1 = {"id":1,"price":50000,"currency":"bitcoin","description":"Alarma de ejemplo 1","type":"Superior","status":false}
-const alarmDemo2 = {"id":2,"price":2000,"currency":"bitcoin","description":"Alarma de ejemplo 2","type":"Inferior","status":false}
-const alarmDemo3 = {"id":3,"price":30000,"currency":"bitcoin","description":"Alarma Volumen de ejemplo 3","type":"Volumen","status":false}
-const alarmDemo4 = {"id":4,"price":10000,"currency":"ethereum","description":"Alarma doble de ejemplo ","type":"Superior","status":false}
-const alarmDemo5 = {"id":5,"price":500,"currency":"ethereum","description":"Alarma doble de ejemplo ","type":"Inferior","status":false}
-const alarmDemo6 = {"id":6,"price":90000,"currency":"ethereum","description":"Alarma Volumen de ejemplo","type":"Volumen","status":false}
-const alarmDemo7 = {"id":7,"price":80000,"currency":"ethereum","description":"Alarma Volumen de ejemplo","type":"Volumen","status":false}
-
-const arrBtcHigherAlerts = JSON.parse(localStorage.getItem('arrBtcHigherAlerts')) || [alarmDemo1]
-const arrBtcLowerAlerts = JSON.parse(localStorage.getItem('arrBtcLowerAlerts')) || [alarmDemo2];
-const arrBtcVolumeAlerts = JSON.parse(localStorage.getItem('arrBtcVolumeAlerts')) || [alarmDemo3];
-const arrEthHigherAlerts = JSON.parse(localStorage.getItem('arrEthHigherAlerts')) || [alarmDemo4];
-const arrEthLowerAlerts = JSON.parse(localStorage.getItem('arrEthLowerAlerts')) || [alarmDemo5];
-const arrEthVolumeAlerts = JSON.parse(localStorage.getItem('arrEthVolumeAlerts')) || [alarmDemo6, alarmDemo7];
-const counterForStorage = JSON.parse(localStorage.getItem('AlertCounter')) || 7;
-
-const logIdDontRepeat = [];
-let logContent = [];
-let hourSimple;
-let dateSimple;
 
 const log = (value) => console.log(value); // console.log()
-
-class Alert {
-    
-    static counter = counterForStorage;
-    
-    constructor(price, currency, description, type) {
-        
-        this._id = ++Alert.counter;
-        this._price = price;
-        this._currency = currency;
-        this._description = description;
-        this._type = type;
-        this._status = false;
-    }
-    
-    get id() {
-        return this._id;
-    }
-    
-    get price() {
-        return this._price;
-    }
-    set price(price) {
-        this._price = price;
-    }
-
-    get currency() {
-        return this._currency;
-    }
-    set currency(currency) {
-        this._currency = currency;
-    }
-    
-    get description() {
-        return this._description;
-    }
-    set description(description) {
-        this._description = description;
-    }
-
-    get type() {
-        return this._type;
-    }
-    set type(type) {
-        this._type = type;
-    }
-
-    get status() {
-        return this._status;
-    }
-    set status(status) {
-        this._status = status;
-    }
-    
-    toString() {
-        return `---- Nº: ${this._id} / D: ${this._description} / CUR: ${this._currency} / P: ${this._price} / T: ${this._type} / S: ${this._status}`;
-    }
-    
-    toJSON() { //apuntes
-        return {
-            id: this._id,
-            price: this._price,
-            currency: this._currency,
-            description: this._description,
-            type: this._type,
-            status: this._status,
-        };
-    }
-}
-
 
 
 
@@ -141,43 +45,9 @@ $(document).ready(function () {
 });
 
 
-function showDate() {
-    actualTime = new Date();
-    
-    const twoDigitsHour = (hour) => {
-        if (hour < 10)
-        hour = '0' + hour;
-        return hour
-    } // Esta función hace que si el valor tiene 1 digito se le añada un 0 a la izquierda
-    
-    function getWeekDay(actualTime) {
-        const days = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
-        return days[actualTime.getDay()];
-    } //Comparamos el valor de una variable para segun la casilla del arreglo retornar un valor.
-    
-    hourSimple = `${twoDigitsHour(actualTime.getHours())}:${twoDigitsHour(actualTime.getMinutes())}:${twoDigitsHour(actualTime.getSeconds())}`;
-    dateSimple = `${actualTime.getDate()} / ${actualTime.getMonth() + 1}`;
-    
-    $('#hour-div').html(`<p> ${hourSimple} </p>`)
-    
-    setTimeout('showDate()', 1000);
-}
 
-function saveLocalStorage() { 
 
-    // Se encarga de almacenar en el local storage todos los arreglos que contienen las alertas
 
-    const arrTypes = ['BtcHigher', 'BtcLower', 'BtcVolume', 'EthHigher', 'EthLower', 'EthVolume'];
-
-    arrTypes.forEach(type => {
-        localStorage.setItem(`arr${type}Alerts`, JSON.stringify(eval(`arr${type}Alerts`), (key, value) => { 
-            if (value instanceof Alert) {
-                return value.toJSON();
-            }
-            return value;
-        }));
-    });
-}
 
 async function getPriceAndVolume() {
 
